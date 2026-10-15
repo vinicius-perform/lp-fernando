@@ -1,0 +1,4 @@
+server.js
+*.log
+.git
+README.md
