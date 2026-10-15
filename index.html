@@ -210,6 +210,12 @@
       overflow: hidden;
     }
 
+    .hero-bg-picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .hero-bg-img {
       width: 100%;
       height: 100%;
@@ -283,32 +289,36 @@
       padding-top: 30px;
       max-width: 580px;
       width: 100%;
-      text-align: left;
+      text-align: center;
     }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 12px;
       color: var(--beige);
       margin-bottom: 22px;
+      margin-inline: auto;
     }
 
-    .hero-eyebrow::before {
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
       content: "";
       display: inline-block;
-      width: 28px;
+      width: 24px;
       height: 1px;
       background: var(--copper);
     }
 
     .hero-headline {
-      font-size: clamp(44px, 4.4vw, 64px);
-      line-height: 0.95;
+      font-size: clamp(40px, 4.2vw, 62px);
+      line-height: 1.02;
       font-weight: 400;
       letter-spacing: -0.03em;
       color: var(--ivory);
       margin-bottom: 24px;
+      text-align: center;
     }
 
     .hero-headline .italic-serif {
@@ -321,25 +331,31 @@
     .hero-subheadline {
       font-size: 17px;
       line-height: 1.65;
-      color: rgba(247, 242, 237, 0.8);
+      color: rgba(247, 242, 237, 0.85);
       max-width: 520px;
       margin-bottom: 34px;
       font-weight: 300;
+      text-align: center;
+      margin-inline: auto;
     }
 
     .hero-cta-group {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
       gap: 16px;
+      width: 100%;
     }
 
     .hero-doctor-badge {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 3px;
       margin-top: 6px;
-      padding-left: 2px;
+      padding-left: 0;
     }
 
     .hero-doctor-name {
@@ -1782,8 +1798,8 @@
         width: calc(100% - 48px);
       }
       .hero-content {
-        padding-bottom: 30px;
-        max-width: 100%;
+        padding-bottom: 50px;
+        max-width: 540px;
       }
       .beneficios-grid-50 {
         grid-template-columns: 1fr;
@@ -1818,32 +1834,101 @@
     }
 
     @media (max-width: 768px) {
+      .hero-section {
+        min-height: auto;
+        padding-top: 0;
+        padding-bottom: 70px;
+        align-items: flex-start;
+        background-color: #1D100D;
+      }
+      .hero-bg-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .hero-bg-picture {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
       .hero-bg-img {
-        object-position: center top;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        object-position: top center;
+      }
+      .hero-giant-word {
+        display: none;
       }
       .hero-container {
-        width: calc(100% - 40px);
+        width: calc(100% - 36px);
+        margin-inline: auto;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .hero-content {
+        padding-top: calc(85vw + 16px);
+        padding-bottom: 20px;
+        max-width: 480px;
+        margin-inline: auto;
+        text-align: center;
       }
       .hero-bg-overlay {
         background: linear-gradient(180deg, 
-          rgba(29, 16, 13, 0.95) 0%, 
-          rgba(29, 16, 13, 0.88) 55%, 
-          rgba(29, 16, 13, 0.6) 100%
+          rgba(29, 16, 13, 0) 0%, 
+          rgba(29, 16, 13, 0) 45vw, 
+          rgba(29, 16, 13, 0.45) 70vw, 
+          rgba(29, 16, 13, 0.92) 86vw, 
+          #1D100D 105vw
         );
       }
-      .container {
-        width: calc(100% - 40px);
+      .hero-eyebrow {
+        margin-bottom: 14px;
+        font-size: 11px;
       }
-      .doctor-section-container {
-        width: calc(100% - 40px);
-      }
-      .section-padding {
-        padding-top: 80px;
-        padding-bottom: 80px;
+      .hero-eyebrow::before,
+      .hero-eyebrow::after {
+        width: 18px;
       }
       .hero-headline {
-        font-size: 40px;
-        line-height: 1;
+        font-size: clamp(28px, 7.4vw, 36px);
+        line-height: 1.1;
+        margin-bottom: 14px;
+        text-align: center;
+      }
+      .hero-subheadline {
+        font-size: 15px;
+        line-height: 1.55;
+        margin-bottom: 24px;
+        text-align: center;
+        margin-inline: auto;
+      }
+      .hero-cta-group {
+        align-items: center;
+        width: 100%;
+        gap: 14px;
+      }
+      .hero-cta-group .btn-pill {
+        width: 100%;
+        max-width: 340px;
+        padding-inline: 20px;
+        font-size: 14px;
+        justify-content: center;
+      }
+      .hero-doctor-badge {
+        align-items: center;
+        text-align: center;
+      }
+      .hero-doctor-name {
+        font-size: 17px;
+      }
+      .hero-doctor-crm {
+        font-size: 11.5px;
       }
       .doctor-heading {
         font-size: clamp(36px, 8vw, 44px);
@@ -1892,9 +1977,12 @@
        01 — HERO SECTION (COMEÇA EM Y = 0 SEM HEADER)
        =================================================== -->
   <section id="top" class="hero-section">
-    <!-- Background Imagem Editorial com Dr. Fernando no Consultório -->
+    <!-- Background Imagem Editorial com Dr. Fernando no Consultório (Desktop e Mobile) -->
     <div class="hero-bg-wrapper">
-      <img src="public/bgfernandodesktop.png" alt="Dr. Fernando Silveira - Consultório e Cirurgia Facial" class="hero-bg-img" />
+      <picture class="hero-bg-picture">
+        <source media="(max-width: 768px)" srcset="public/bgmobilefern.png">
+        <img src="public/bgfernandodesktop.png" alt="Dr. Fernando Silveira - Consultório e Cirurgia Facial" class="hero-bg-img" />
+      </picture>
       <div class="hero-bg-overlay"></div>
     </div>
 
